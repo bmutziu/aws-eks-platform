@@ -17,7 +17,7 @@ data "aws_iam_policy_document" "main" {
     }
 
     principals {
-      identifiers = ["${aws_iam_openid_connect_provider.main.arn}"]
+      identifiers = [aws_iam_openid_connect_provider.main.arn]
       type        = "Federated"
     }
   }

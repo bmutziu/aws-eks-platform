@@ -24,7 +24,7 @@ variable "eks_cluster_name" {
 }
 
 variable "environment" {
-  description = "Applicaiton environment"
+  description = "Application environment"
   type = string
 }
 
@@ -34,6 +34,11 @@ variable "eks_cluster_subnets" {
 }
 
 variable "main_pvt_route_table_id" {
-  description = "Main Rroute table id for VPC with EKS cluster"
+  description = "Main route table id for VPC with EKS cluster"
   type = string
+}
+
+variable "ssh_key_name" {
+  description = "EC2 Key Pair"
+  type        = string
 }

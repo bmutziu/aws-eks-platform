@@ -9,15 +9,22 @@ variable "route_table_tag_name" {
   description = "Route table description"
 }
 
+variable "route_table_tag_name_0" {
+  type        = string
+  default     = "private"
+  description = "Private Route table description"
+}
+
+
 variable "vpc_cidr_block" {
   type        = string
   default     = "10.0.0.0/16"
   description = "CIDR block range for vpc"
 }
 
-variable "private_subnet_cidr_block" {
-  type        = string
-  default     = "10.0.0.0/24"
+variable "private_subnet_cidr_blocks" {
+  type        = list(string)
+  default     = ["10.0.0.0/24", "10.0.3.0/24"]
   description = "CIDR block range for the private subnet"
 }
 
@@ -44,7 +51,7 @@ variable "availability_zones" {
 }
 
 variable "main_pvt_route_table_id" {
-  description = "Main Rroute table id for VPC with EKS cluster"
+  description = "Main route table id for VPC with EKS cluster"
   type = string
 }
 

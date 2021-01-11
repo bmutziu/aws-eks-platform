@@ -31,8 +31,8 @@ spec:
             # annotation kubernetes.io/ingress.class: "alb" are respected by the controller. You may
             # choose any class you'd like for this controller to respect.
             - --ingress-class=alb
-            - --cluster-name=lukas-k8-platform
-            - --aws-vpc-id=vpc-092c8327f3c884c4a
+            - --cluster-name=bmutziu-eks-0
+            - --aws-vpc-id=vpc-0a4ce5c7c02b7e449
             - --aws-region=eu-west-1
             # REQUIRED
             # Name of your cluster. Used when naming resources created
@@ -69,4 +69,6 @@ spec:
             #  value: SECRETVALUE
           # Repository location of the ALB Ingress Controller.
           image: docker.io/amazon/aws-alb-ingress-controller:v1.1.4
+      nodeSelector:
+        nodeType: "publicNode"
       serviceAccountName: alb-ingress-controller

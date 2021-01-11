@@ -17,7 +17,9 @@ module "eks_cluster_and_worker_nodes" {
   cluster_sg_name = "${var.platform_name}-cluster-sg"
   nodes_sg_name = "${var.platform_name}-node-sg"
   eks_cluster_name = var.eks_cluster_name
-  eks_cluster_subnet_ids = var.eks_cluster_subnets # module.vpc_for_eks.public_subnet_ids
+  #eks_cluster_subnet_ids = var.eks_cluster_subnets
+  eks_cluster_subnet_ids = module.vpc_for_eks.public_subnet_ids
+  ssh_key_name = var.ssh_key_name
   pvt_desired_size = 3
   pvt_max_size = 8
   pvt_min_size = 2
@@ -28,7 +30,7 @@ module "eks_cluster_and_worker_nodes" {
   endpoint_public_access = true
   # Node group
   node_group_name = "${var.eks_cluster_name}-node-group"
-  private_subnet_ids = [module.vpc_for_eks.private_subnet_id]
+  private_subnet_ids = module.vpc_for_eks.private_subnet_ids
   public_subnet_ids = module.vpc_for_eks.public_subnet_ids
   environment = var.environment
 }

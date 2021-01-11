@@ -42,7 +42,7 @@ variable "public_subnet_ids" {
 
 variable "ami_type" {
   description = "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to AL2_x86_64. Valid values: AL2_x86_64, AL2_x86_64_GPU."
-  type = string 
+  type = string
   default = "AL2_x86_64"
 }
 
@@ -105,6 +105,11 @@ variable nodes_sg_name {
 }
 
 variable vpc_id {
-  description = "VPC ID from which belogs the subnets"
+  description = "VPC ID from which belongs the subnets"
+  type        = string
+}
+
+variable ssh_key_name {
+  description = "EC2 Key Pair"
   type        = string
 }

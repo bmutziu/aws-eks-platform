@@ -34,3 +34,6 @@ override.tf.json
 # Exclude certain K8s objects
 kubernetes-object-manifest-files/express*
 kubernetes-object-manifest-files/cluster*
+
+# AWS Key Pair
+bmutziu-key-pair.pem
